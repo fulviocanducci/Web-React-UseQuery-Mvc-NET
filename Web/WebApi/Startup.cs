@@ -21,6 +21,7 @@ namespace WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.Configure<RouteOptions>(config =>
             {
                 config.LowercaseQueryStrings = true;
@@ -44,10 +45,13 @@ namespace WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
 
+            app.UseCors(config => {
+                config.AllowAnyHeader();
+                config.AllowAnyMethod();
+                config.AllowAnyOrigin();                
+            });
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
