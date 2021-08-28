@@ -8,7 +8,6 @@ import StatusIcon from "../StatusIcon";
 import { useCreditPageList } from "./hooks";
 function Credit() {
   const { data, setPage } = useCreditPageList();
-
   return (
     <>
       <Table striped bordered hover size="sm" className="mt-4" responsive="sm">

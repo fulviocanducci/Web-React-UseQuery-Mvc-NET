@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Models;
+using Canducci.Pagination;
 
 namespace WebApi.Controllers
 {
@@ -16,6 +17,12 @@ namespace WebApi.Controllers
         public TodosController(DataAccess context)
         {
             _context = context;
+        }
+
+        [HttpGet("page/{page}")]
+        public async Task<PaginatedRest<Todo>> GetTodoPage(int? page)
+        {
+            return await _context.Todo.OrderBy(x => x.Description).ToPaginatedRestAsync(page ?? 1, 5);
         }
 
         [HttpGet]
