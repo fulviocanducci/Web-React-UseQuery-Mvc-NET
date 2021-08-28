@@ -1,6 +1,9 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import Credit from "../Credit";
+import CreditCreate from "../Credit/create";
+import CreditUpdate from "../Credit/update";
 
 import Home from "../Home";
 import Todos from "../Todos";
@@ -31,6 +34,12 @@ function TopBar() {
       </Navbar>
       <Container mt={2}>
         <Switch>
+          <Route path="/credit/:id/update">
+            <CreditUpdate />
+          </Route>
+          <Route path="/credit/create">
+            <CreditCreate />
+          </Route>
           <Route path="/credit">
             <Credit />
           </Route>

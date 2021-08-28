@@ -1,13 +1,10 @@
 import { Table } from "react-bootstrap";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import { BsPencil, BsPlus } from "react-icons/bs";
-
+import { BtnCreate, BtnEdit } from "../Button";
 import StatusIcon from "../StatusIcon";
 import Loading from "../Loading";
-
-import { allTodos } from "./sources";
 import ErrorAlert from "../ErrorAlert";
+import { allTodos } from "./sources";
 
 function Todos() {
   const { isError, isLoading, error, data } = useQuery("todos", allTodos);
@@ -18,9 +15,7 @@ function Todos() {
   return (
     <>
       <div className="mt-3 text-center">
-        <Link to="/todos/create" className="btn btn-primary">
-          <BsPlus /> Criar
-        </Link>
+        <BtnCreate to="/todos/create" />
       </div>
       <Table striped bordered hover size="sm" className="mt-4" responsive="sm">
         <thead>
@@ -48,9 +43,7 @@ function Todos() {
                   <StatusIcon status={item.active} />
                 </td>
                 <td className="text-center">
-                  <Link to={`/todos/${item.id}/update`} className="btn btn-primary">
-                    <BsPencil /> Editar
-                  </Link>
+                  <BtnEdit to={`/todos/${item.id}/update`} />
                 </td>
               </tr>
             ))}

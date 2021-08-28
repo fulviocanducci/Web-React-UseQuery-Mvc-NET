@@ -24,7 +24,7 @@ function Create() {
   if (isLoading) return <Loading />;
   if (isError) return <ErrorAlert message={error.message} />;
 
-  return <FormBase onSubmit={onSubmit} defaultValues={{ description: "", active: true }} />;
+  return <FormBase onSubmit={onSubmit} defaultValues={{ description: "", active: true }} to="/todos" />;
 }
 
 export default Create;

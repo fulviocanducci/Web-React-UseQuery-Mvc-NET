@@ -2,14 +2,14 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
-import { BsPencil, BsPlus, BsCaretLeftFill } from "react-icons/bs";
+import { BsPencil, BsPlus } from "react-icons/bs";
+import { GoBack } from "../../Button";
 
 const schema = yup.object().shape({
   description: yup.string().required().min(2).max(100),
 });
 
-function FormBase({ onSubmit, defaultValues }) {
+function FormBase({ onSubmit, defaultValues, to = "/" }) {
   const {
     register,
     handleSubmit,
@@ -36,9 +36,7 @@ function FormBase({ onSubmit, defaultValues }) {
         {getValues("id") ? <BsPencil /> : <BsPlus />}
         {getValues("id") ? " Editar" : " Criar"}
       </Button>{" "}
-      <Link className="btn btn-danger" to="/todos">
-        <BsCaretLeftFill /> Voltar
-      </Link>
+      <GoBack to={to} />
     </Form>
   );
 }

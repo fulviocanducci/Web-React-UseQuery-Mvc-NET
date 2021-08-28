@@ -1,15 +1,16 @@
 import { Table } from "react-bootstrap";
-import { BsPencil } from "react-icons/bs";
-import { Link } from "react-router-dom";
-
 import Paginated from "../Paginated";
 import StatusIcon from "../StatusIcon";
-
+import { BtnCreate, BtnEdit } from "../Button";
 import { useCreditPageList } from "./hooks";
+
 function Credit() {
   const { data, setPage } = useCreditPageList();
   return (
     <>
+      <div className="mt-3 text-center">
+        <BtnCreate to="/credit/create" />
+      </div>
       <Table striped bordered hover size="sm" className="mt-4" responsive="sm">
         <thead>
           <tr>
@@ -36,9 +37,7 @@ function Credit() {
                   <StatusIcon status={item.active} />
                 </td>
                 <td className="text-center">
-                  <Link to={`/todos/${item.id}/update`} className="btn btn-primary">
-                    <BsPencil /> Editar
-                  </Link>
+                  <BtnEdit to={`/credit/${item.id}/update`} />
                 </td>
               </tr>
             ))}

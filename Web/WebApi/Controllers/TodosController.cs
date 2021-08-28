@@ -10,6 +10,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]    
     public class TodosController : ControllerBase
     {
         private readonly DataAccess _context;
@@ -19,7 +20,7 @@ namespace WebApi.Controllers
             _context = context;
         }
 
-        [HttpGet("page/{page}")]
+        [HttpGet("page/{page:int?}")]        
         public async Task<PaginatedRest<Todo>> GetTodoPage(int? page)
         {
             return await _context.Todo.OrderBy(x => x.Description).ToPaginatedRestAsync(page ?? 1, 5);
@@ -28,7 +29,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Todo>>> GetTodo()
         {
-            return await _context.Todo.ToListAsync();
+            return await _context.Todo.OrderBy(x => x.Description).ToListAsync();
         }
 
         [HttpGet("{id}")]

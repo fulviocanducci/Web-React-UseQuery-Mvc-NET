@@ -29,7 +29,7 @@ function Update() {
   if (isLoading) return <Loading />;
   if (isError) return <ErrorAlert message={error.message} />;
 
-  return <FormBase onSubmit={onSubmit} defaultValues={data?.data} />;
+  return <FormBase onSubmit={onSubmit} defaultValues={data?.data} to="/todos" />;
 }
 
 export default Update;
