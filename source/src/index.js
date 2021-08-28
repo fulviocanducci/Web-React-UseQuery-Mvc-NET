@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./components/App";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/global.css";
 
 const queryClient = new QueryClient();
 
