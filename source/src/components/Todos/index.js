@@ -11,8 +11,10 @@ import ErrorAlert from "../ErrorAlert";
 
 function Todos() {
   const { isError, isLoading, error, data } = useQuery("todos", allTodos);
+
   if (isError) return <ErrorAlert message={error.message} />;
   if (isLoading) return <Loading />;
+
   return (
     <>
       <div className="mt-3 text-center">
@@ -46,10 +48,7 @@ function Todos() {
                   <StatusIcon status={item.active} />
                 </td>
                 <td className="text-center">
-                  <Link
-                    to={`/todos/${item.id}/update`}
-                    className="btn btn-primary"
-                  >
+                  <Link to={`/todos/${item.id}/update`} className="btn btn-primary">
                     <BsPencil /> Editar
                   </Link>
                 </td>

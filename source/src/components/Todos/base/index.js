@@ -23,16 +23,10 @@ function FormBase({ onSubmit, defaultValues }) {
     <Form onSubmit={handleSubmit(onSubmit)} className="mt-3">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Descrição</Form.Label>
-        <Form.Control
-          type="text"
-          maxLength={100}
-          placeholder="Digite a descrição"
-          {...register("description")}
-        />
+        <Form.Control type="text" maxLength={100} placeholder="Digite a descrição" {...register("description")} />
         <Form.Text className="text-danger">
           {errors.description?.type === "required" && "Descrição é obrigatório"}
-          {errors.description?.type === "min" &&
-            "Descrição com no minimo 2 caracteres"}
+          {errors.description?.type === "min" && "Descrição com no minimo 2 caracteres"}
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">

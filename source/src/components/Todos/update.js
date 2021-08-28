@@ -15,9 +15,7 @@ function Update() {
   const { id } = useParams();
   const { mutateAsync } = useMutation(updateTodo);
 
-  const { data, isLoading, isError, error } = useQuery(["todo", id], () =>
-    findTodo(id)
-  );
+  const { data, isLoading, isError, error } = useQuery(["todo", id], () => findTodo(id));
 
   const onSubmit = async (data) => {
     await mutateAsync(data, {
