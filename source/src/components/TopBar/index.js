@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Credit from "../Credit";
 
 import Home from "../Home";
 import Todos from "../Todos";
@@ -21,12 +22,18 @@ function TopBar() {
               <Link className="nav-link" to="/todos">
                 Lista de Todos
               </Link>
+              <Link className="nav-link" to="/credit">
+                Lista de Créditos
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Container mt={2}>
         <Switch>
+          <Route path="/credit">
+            <Credit />
+          </Route>
           <Route path="/todos/create">
             <Create />
           </Route>
