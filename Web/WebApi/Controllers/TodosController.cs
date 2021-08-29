@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("page/{page:int?}")]        
-        public async Task<PaginatedRest<Todo>> GetTodoPage(int? page)
+        public async Task<PaginatedRest<Todo>> GetTodoPage(int? page = null)
         {
             return await _context.Todo.OrderBy(x => x.Description).ToPaginatedRestAsync(page ?? 1, 5);
         }

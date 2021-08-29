@@ -52,7 +52,7 @@ function TopBar() {
           <Route path="/todos">
             <Todos />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Home />
           </Route>
         </Switch>

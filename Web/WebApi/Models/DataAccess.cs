@@ -7,7 +7,7 @@ namespace WebApi.Models
         public DbSet<Todo> Todo { get; set; }
 
         public DataAccess(DbContextOptions<DataAccess> option)
-            :base(option)
+            : base(option)
         {
         }
 
