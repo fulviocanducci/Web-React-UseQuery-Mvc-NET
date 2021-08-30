@@ -6,6 +6,7 @@ import CreditCreate from "../Credit/create";
 import CreditUpdate from "../Credit/update";
 
 import Home from "../Home";
+import Task from "../Task";
 import Todos from "../Todos";
 import Create from "../Todos/create";
 import Update from "../Todos/update";
@@ -28,12 +29,16 @@ function TopBar() {
               <Link className="nav-link" to="/credit">
                 Lista de Créditos
               </Link>
+              <Link className="nav-link" to="/task">
+                Lista de Tarefas
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Container mt={2}>
         <Switch>
+          <Route path="/task" component={Task} />
           <Route path="/credit/:id/update">
             <CreditUpdate />
           </Route>
